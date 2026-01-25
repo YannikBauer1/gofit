@@ -146,43 +146,7 @@
     </div>
 
     <!-- Trainer Section -->
-    <div id="trainer" class="max-w-7xl mx-auto py-16 px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unsere Trainer</h2>
-        <p class="text-gray-300 text-lg">Erfahrene Profis, die dich auf deinem Fitness-Weg begleiten</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          v-for="trainer in trainers"
-          :key="trainer.name"
-          class="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-        >
-          <div class="h-48 overflow-hidden flex justify-center">
-            <img
-              src="/trainer/yannik.png"
-              :alt="trainer.name"
-              class="h-[120%] w-auto max-w-sm object-cover object-top"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-white mb-2">{{ trainer.name }}</h3>
-            <p :class="trainer.colorClass" class="font-semibold mb-3">{{ trainer.specialization }}</p>
-            <p class="text-gray-300 text-sm mb-4">{{ trainer.description }}</p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="tag in trainer.tags"
-                :key="tag"
-                :class="trainer.tagColorClass"
-                class="px-3 py-1 rounded-full text-xs"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Trainer />
 
     <!-- Advanced Features Section -->
     <div class="max-w-7xl mx-auto">
@@ -249,58 +213,6 @@ useHead({
   ],
 });
 
-
-// Trainer data
-const trainers = [
-  {
-    name: "Max Müller",
-    specialization: "Personal Trainer & Krafttraining",
-    description: "10+ Jahre Erfahrung in Personal Training und Bodybuilding. Spezialisiert auf Kraft- und Muskelaufbau.",
-    tags: ["Krafttraining", "Bodybuilding"],
-    colorClass: "text-blue-400",
-    tagColorClass: "bg-blue-500/20 text-blue-300",
-  },
-  {
-    name: "Sarah Schmidt",
-    specialization: "Yoga & Rehasport",
-    description: "Zertifizierte Yoga- und Rehasport-Trainerin mit Fokus auf Rehabilitation und Entspannung.",
-    tags: ["Yoga", "Rehasport"],
-    colorClass: "text-green-400",
-    tagColorClass: "bg-green-500/20 text-green-300",
-  },
-  {
-    name: "Tom Weber",
-    specialization: "Ausdauer & Functional Training",
-    description: "Experte für Cardio-Training, Functional Fitness und Marathon-Vorbereitung.",
-    tags: ["Cardio", "Functional"],
-    colorClass: "text-orange-400",
-    tagColorClass: "bg-orange-500/20 text-orange-300",
-  },
-  {
-    name: "Lisa Fischer",
-    specialization: "Dance Fitness & Zumba",
-    description: "Energische Dance-Fitness-Trainerin, die jede Stunde zu einem Party-Erlebnis macht.",
-    tags: ["Dance", "Zumba"],
-    colorClass: "text-pink-400",
-    tagColorClass: "bg-pink-500/20 text-pink-300",
-  },
-  {
-    name: "Andreas Klein",
-    specialization: "CrossFit & Functional Training",
-    description: "CrossFit Level 2 Trainer mit Fokus auf funktionelle Bewegungen und Intensität.",
-    tags: ["CrossFit", "HIIT"],
-    colorClass: "text-cyan-400",
-    tagColorClass: "bg-cyan-500/20 text-cyan-300",
-  },
-  {
-    name: "Anna Becker",
-    specialization: "Boxing & Kickboxing",
-    description: "Professionelle Kampfsport-Trainerin für Boxen und Kickboxen. Ideal für Kraft und Koordination.",
-    tags: ["Boxing", "Kickboxing"],
-    colorClass: "text-yellow-400",
-    tagColorClass: "bg-yellow-500/20 text-yellow-300",
-  },
-];
 
 // Reactive variables
 const scrolled = ref(false);
