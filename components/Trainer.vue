@@ -38,8 +38,8 @@
           <div
             v-for="(trainer, index) in duplicatedTrainers"
             :key="`${trainer.name}-${index}`"
-            class="flex-shrink-0 pr-8"
-            :style="{ width: `${cardWidth}px` }"
+            class="flex-shrink-0"
+            :style="{ width: `${cardWidth}px`, marginRight: `${gap}px` }"
           >
             <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
               <div class="h-48 overflow-hidden flex justify-center">
@@ -140,7 +140,9 @@ const duplicatedTrainers = computed(() => {
 });
 
 const currentPosition = computed(() => {
-  return currentIndex.value * (cardWidth.value + gap);
+  // Calculate exact position: each card takes cardWidth + gap space
+  const cardWithGap = cardWidth.value + gap;
+  return currentIndex.value * cardWithGap;
 });
 
 const scrollLeft = () => {
@@ -148,11 +150,12 @@ const scrollLeft = () => {
   
   // Check if we're at the boundary BEFORE scrolling
   if (currentIndex.value === trainers.length) {
-    // We're at the start boundary, reset to end instantly (no transition)
+    // At start boundary, jump to end of middle copy instantly (no transition)
     isTransitioning.value = false;
     isJumping.value = true;
-    currentIndex.value = trainers.length * 2 - 1;
-    // Now scroll left with transition
+    currentIndex.value = trainers.length * 2; // Jump to index 11 (last of middle copy)
+    
+    // Then scroll left with transition (to index 10)
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         isTransitioning.value = true;
@@ -172,11 +175,12 @@ const scrollRight = () => {
   
   // Check if we're at the boundary BEFORE scrolling
   if (currentIndex.value === trainers.length * 2 - 1) {
-    // We're at the end boundary, reset to start instantly (no transition)
+    // At end boundary, jump to start of middle copy instantly (no transition)
     isTransitioning.value = false;
     isJumping.value = true;
-    currentIndex.value = trainers.length;
-    // Now scroll right with transition
+    currentIndex.value = trainers.length - 1; // Jump to index 6 (first of middle copy)
+    
+    // Then scroll right with transition (to index 7)
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         isTransitioning.value = true;
@@ -196,7 +200,9 @@ const calculateCardWidth = () => {
   if (carouselContainer.value && carouselContainer.value.parentElement) {
     const container = carouselContainer.value.parentElement;
     const containerWidth = container.offsetWidth - 96; // Subtract padding (48px * 2)
-    cardWidth.value = Math.floor((containerWidth - (gap * (visibleCards.value - 1))) / visibleCards.value);
+    // Use more precise calculation without flooring to avoid accumulation errors
+    const calculatedWidth = (containerWidth - (gap * (visibleCards.value - 1))) / visibleCards.value;
+    cardWidth.value = Math.round(calculatedWidth * 100) / 100; // Round to 2 decimal places for precision
   }
 };
 
