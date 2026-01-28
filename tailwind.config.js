@@ -14,6 +14,7 @@ export default {
       colors: {
         'highlight': '#91db31',
         'base': '#1C2F35',
+        'card': '#262626',
         'secondary': '#D5CDB8',
         'tertiary': '#A5906E',
         'hover': '#262626',

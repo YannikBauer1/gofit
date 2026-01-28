@@ -9,14 +9,14 @@
         : 'md:shadow-none'
     "
   >
-    <div class="px-6 py-4">
+    <div class="px-6 py-1">
       <div class="mx-auto max-w-7xl flex justify-between items-center">
         <!-- Logo and Title -->
         <div class="flex items-center space-x-3">
           <img
             src="/logo.png"
             alt="GoFit Logo"
-            class="w-10 h-10 rounded-xl"
+            class="w-16 h-16 rounded-xl"
           />
         </div>
 
@@ -145,6 +145,9 @@
     <div id="preise" class="max-w-7xl mx-auto">
     </div>
 
+    <!-- Hours Section -->
+    <Hours />
+
     <!-- Trainer Section -->
     <Trainer />
 
@@ -158,7 +161,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 px-6">
+  <footer class="bg-card text-white py-6 px-6">
     <div
       class="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center"
     >

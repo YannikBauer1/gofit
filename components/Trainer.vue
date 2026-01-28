@@ -41,7 +41,7 @@
             class="flex-shrink-0"
             :style="{ width: `${cardWidth}px`, marginRight: `${gap}px` }"
           >
-            <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+            <div class="bg-card p-6 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
               <div class="h-48 overflow-hidden flex justify-center">
                 <img
                   src="/trainer/yannik.png"
@@ -49,8 +49,8 @@
                   class="h-[120%] w-auto max-w-sm object-cover object-top"
                 />
               </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-bold text-white mb-2">{{ trainer.name }}</h3>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-2 mt-2">{{ trainer.name }}</h3>
                 <p :class="trainer.colorClass" class="font-semibold mb-3">{{ trainer.specialization }}</p>
                 <p class="text-gray-300 text-sm mb-4">{{ trainer.description }}</p>
                 <div class="flex flex-wrap gap-2">
