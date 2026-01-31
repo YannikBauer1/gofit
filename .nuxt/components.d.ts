@@ -13,6 +13,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'Hours': typeof import("../components/Hours.vue")['default']
+    'Price': typeof import("../components/Price.vue")['default']
     'Trainer': typeof import("../components/Trainer.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'UAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
@@ -92,6 +93,7 @@ interface _GlobalComponents {
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyHours': LazyComponent<typeof import("../components/Hours.vue")['default']>
+    'LazyPrice': LazyComponent<typeof import("../components/Price.vue")['default']>
     'LazyTrainer': LazyComponent<typeof import("../components/Trainer.vue")['default']>
     'LazyUAccordion': LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
     'LazyUAlert': LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>
@@ -177,6 +179,7 @@ declare module 'vue' {
 }
 
 export const Hours: typeof import("../components/Hours.vue")['default']
+export const Price: typeof import("../components/Price.vue")['default']
 export const Trainer: typeof import("../components/Trainer.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const UAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
@@ -256,6 +259,7 @@ export const UModals: typeof import("../node_modules/nuxt/dist/app/components/se
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyHours: LazyComponent<typeof import("../components/Hours.vue")['default']>
+export const LazyPrice: LazyComponent<typeof import("../components/Price.vue")['default']>
 export const LazyTrainer: LazyComponent<typeof import("../components/Trainer.vue")['default']>
 export const LazyUAccordion: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
 export const LazyUAlert: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>

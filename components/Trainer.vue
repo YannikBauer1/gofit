@@ -40,7 +40,7 @@
             class="flex-shrink-0"
             :style="{ width: `${cardWidth}px`, marginRight: `${gap}px` }"
           >
-            <div class="bg-card p-6 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+            <div class="bg-card p-6 my-rounded my-shadow overflow-hidden transition-shadow duration-300 h-full">
               <div class="h-48 overflow-hidden flex justify-center">
                 <img
                   src="/trainer/yannik.png"

@@ -143,7 +143,7 @@
     <div id="kurse"></div>
 
     <!-- Preise Section -->
-    <div id="preise"></div>
+    <Price />
 
     <!-- Hours Section -->
     <Hours />
