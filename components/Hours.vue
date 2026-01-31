@@ -1,15 +1,15 @@
 <template>
-  <div id="hours" class="max-w-7xl mx-auto py-16 px-6">
+  <div id="hours" class="maximum-width py-16">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Öffnungszeiten</h2>
       <p class="text-gray-300 text-lg">Wann du uns besuchen kannst</p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6">
       <div
         v-for="(day, index) in openingHours"
         :key="day.day"
-        class="bg-card backdrop-blur-sm rounded-xl p-6 shadow-lg"
+        class="bg-card relative my-rounded p-6 my-shadow overflow-visible"
         :class="{
           'ring-2 ring-highlight': isToday(index),
           'bg-card': day.day === 'Samstag' || day.day === 'Sonntag'
@@ -17,7 +17,9 @@
       >
         <div class="flex items-center justify-between mb-2">
           <h3 class="text-xl font-bold text-white text-center w-full">{{ day.day }}</h3>
-          <div v-if="isToday(index)" class="absolute top-0 right-0 px-2 py-0.5 bg-highlight/20 text-highlight rounded text-xs font-semibold rounded-bl-xl">
+        </div>
+        <div class="absolute -top-1.5 -right-1.5 bg-card" v-if="isToday(index)">
+        <div class="px-4 py-0.5 bg-highlight/20 text-highlight text-xs font-semibold rounded-md border-2 border-highlight">
             Heute
           </div>
         </div>

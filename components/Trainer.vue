@@ -1,5 +1,5 @@
 <template>
-  <div id="trainer" class="max-w-7xl mx-auto py-16 px-6">
+  <div id="trainer" class="maximum-width py-16">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unsere Trainer</h2>
       <p class="text-gray-300 text-lg">Erfahrene Profis, die dich auf deinem Fitness-Weg begleiten</p>
@@ -27,7 +27,6 @@
         </svg>
       </button>
 
-      <!-- Carousel Container -->
       <div class="overflow-hidden px-12">
         <div
           ref="carouselContainer"

@@ -13,6 +13,7 @@ export default {
     extend: {
       colors: {
         'highlight': '#91db31',
+        'background': '#1a1a1a',
         'base': '#1C2F35',
         'card': '#262626',
         'secondary': '#D5CDB8',

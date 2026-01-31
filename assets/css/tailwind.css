@@ -2,177 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tailwind CSS scrollbar styling */
-@layer utilities {
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent; /* Tailwind gray-200 */
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgb(107 114 128); /* Tailwind blue-400 */
-    border-radius: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(94, 100, 112); /* Tailwind blue-500 */
-  }
-}
-
-/* Texts */
 .text-xxs {
   font-size: 0.625rem
 }
 
-/* Cards */
-.headerCard{
-  @apply card-3 bg-secondary text-sm text-text-secondary font-semibold ;
-}
-.card-1 {
-  @apply h-7 px-2 py-1 my-rounded flex items-center;
-}
-.card-2 {
-  @apply h-8 px-4 md:px-2 py-1 my-rounded flex items-center;
-}
-.card-3 {
-  @apply h-10 px-4 md:px-2 py-1 my-rounded flex items-center;
-}
-.card-4 {
-  @apply h-14 px-4 md:px-2 py-1 my-rounded flex items-center;
-}
-.card-5 {
-  @apply h-20 px-4 md:px-2 py-1 my-rounded flex items-center;
+.maximum-width {
+  @apply max-w-7xl mx-auto;
 }
 
-/* Images */
-.image-avatar {
-  @apply h-7 w-7 mr-2;
-}
-.image-avatar-sm {
-  @apply h-6 w-6 mr-4;
+.my-rounded {
+  @apply rounded-2xl;
 }
 
-/* Width */
-.max-width-sm {
-  @apply w-[40rem] min-w-0 lg:w-full;
+.my-shadow {
+  @apply shadow-lg;
 }
 
-/* Spaces */
-.space-y-sm {
-  @apply space-y-4;
-}
 
-/* Grids */
-.grid-1 {
-  @apply grid grid-cols-1 gap-4 h-fit;
-}
-.grid-2 {
-  @apply space-y-sm lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-20;
-}
-.grid-2-normal{
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20;
-}
-.grid-2-sm{
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
-}
-.grid-3 {
-  @apply space-y-sm md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12;
-}
-.grid-3-sm{
-  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
-}
-.grid-3-table{
-  @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12;
-}
-.grid-4 {
-  @apply grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8;
-}
-
-/* Trainsitions */
-.my-grow {
-  @apply transition-transform duration-200 hover:scale-110;
-}
-.my-ease {
-  @apply transition ease-out duration-200
-}
-
-/* Rounded */
-.my-rounded{
-  @apply rounded-sm;
-}
-.img-rounded{
-  @apply rounded;
-} 
-
-/* Loading Sizes */
-.loading-xxs {
-  @apply h-2;
-}
-.loading-xs {
-  @apply h-[10px];
-}
-.loading-sm {
-  @apply h-3;
-}
-.loading-md {
-  @apply h-4;
-}
-.loading-lg {
-  @apply h-5;
-}
-.loading-xl {
-  @apply h-6;
-}
-.loading-2xl {
-  @apply h-7;
-}
-
-/* Error heights */
-.error-h-lg {
-  @apply h-[20rem];
-}
-.error-h-md {
-  @apply h-[14rem];
-}
-
-/* Slide Fades */
-.fade-slide-right-enter-active,
-.fade-slide-right-leave-active {
-  transition: opacity 0.1s ease, transform 0.1s ease;
-}
-.fade-slide-right-enter-from {
-  opacity: 0;
-  transform: translateX(20px);
-}
-.fade-slide-right-enter-to {
-  opacity: 1;
-  transform: translateX(0);
-}
-.fade-slide-right-leave-from {
-  opacity: 1;
-  transform: translateX(0);
-}
-.fade-slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-.fade-slide-left-enter-active,
-.fade-slide-left-leave-active {
-  transition: opacity 0.1s ease, transform 0.1s ease;
-}
-.fade-slide-left-enter-from {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-.fade-slide-left-enter-to {
-  opacity: 1;
-  transform: translateX(0);
-}
-.fade-slide-left-leave-from {
-  opacity: 1;
-  transform: translateX(0);
-}
-.fade-slide-left-leave-to {
-  opacity: 0;
-  transform: translateX(20px);
-}

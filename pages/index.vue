@@ -1,58 +1,60 @@
 <template>
-  <!-- Header -->
   <header
     ref="header"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-sm"
-    :class="
-      scrolled
-        ? 'shadow-lg'
-        : 'md:shadow-none'
-    "
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6"
   >
-    <div class="px-6 py-1">
-      <div class="mx-auto max-w-7xl flex justify-between items-center">
-        <!-- Logo and Title -->
-        <div class="flex items-center space-x-3">
-          <img
-            src="/logo.png"
-            alt="GoFit Logo"
-            class="w-16 h-16 rounded-xl"
-          />
+    <div
+      class="px-6 py-1 bg-neutral-500/10 backdrop-blur-sm maximum-width my-rounded"
+    >
+      <div
+        class="mx-auto max-w-7xl flex justify-between items-center space-x-10 py-2"
+      >
+        <div class="w-60">
+          <img src="/logo.png" alt="GoFit Logo" class="h-16" />
         </div>
 
-        <!-- Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav
+          class="hidden md:flex items-center space-x-8 text-white font-medium text-lg"
+        >
           <a
             @click="scrollToTop"
-            class="text-white hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+            class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Home
           </a>
           <a
             @click="scrollToSection('kurse')"
-            class="text-white hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+            class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Kurse
           </a>
           <a
             @click="scrollToSection('preise')"
-            class="text-white hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+            class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Preise
           </a>
           <a
             @click="scrollToSection('trainer')"
-            class="text-white hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+            class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Rehasport
           </a>
           <a
             @click="scrollToSection('contact')"
-            class="text-white hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+            class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Kontakt
           </a>
         </nav>
+
+        <div class="w-60 flex justify-end">
+          <button
+            class="bg-highlight text-background px-4 py-2 rounded-md font-medium"
+          >
+            PROBETRAINING BUCHEN
+          </button>
+        </div>
 
         <!-- Mobile Menu Button -->
         <button
@@ -116,12 +118,8 @@
     </div>
   </header>
 
-  <div
-    class="min-h-screen pb-12"
-  >
-    <div
-      class="items-center h-screen"
-    >
+  <div class="min-h-screen pb-12">
+    <div class="items-center h-screen relative">
       <video
         src="/video.mp4"
         autoplay
@@ -130,20 +128,22 @@
         playsinline
         class="w-full h-full object-cover"
       ></video>
+      <div
+        class="absolute top-0 left-0 w-full h-32 from-background to-transparent bg-gradient-to-b"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-32 from-background to-transparent bg-gradient-to-t"
+      ></div>
     </div>
 
     <!-- Statistics Section -->
-    <div class="max-w-7xl mx-auto">
-
-    </div>
+    <div></div>
 
     <!-- Kurse Section -->
-    <div id="kurse" class="max-w-7xl mx-auto">
-    </div>
+    <div id="kurse"></div>
 
     <!-- Preise Section -->
-    <div id="preise" class="max-w-7xl mx-auto">
-    </div>
+    <div id="preise"></div>
 
     <!-- Hours Section -->
     <Hours />
@@ -152,12 +152,10 @@
     <Trainer />
 
     <!-- Advanced Features Section -->
-    <div class="max-w-7xl mx-auto">
-    </div>
+    <div class="max-w-7xl mx-auto"></div>
 
     <!-- Contact Section -->
-    <div id="contact" class="max-w-4xl mx-auto text-center pb-16">
-    </div>
+    <div id="contact" class="max-w-4xl mx-auto text-center pb-16"></div>
   </div>
 
   <!-- Footer -->
@@ -210,12 +208,10 @@ useHead({
   meta: [
     {
       name: "description",
-      content:
-        "GoFit - Bad Kissingen",
+      content: "GoFit - Bad Kissingen",
     },
   ],
 });
-
 
 // Reactive variables
 const scrolled = ref(false);
@@ -284,5 +280,4 @@ onUnmounted(() => {
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
-
 </style>
