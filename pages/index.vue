@@ -175,25 +175,21 @@
       <!-- Footer Links -->
       <div class="flex flex-wrap gap-4 md:gap-6 text-sm">
         <a
-          href="/contact"
           class="text-gray-300 hover:text-highlight transition-colors duration-300"
         >
           Contact
         </a>
         <a
-          href="/credits"
           class="text-gray-300 hover:text-highlight transition-colors duration-300"
         >
           Credits
         </a>
         <a
-          href="/privacy-policy"
           class="text-gray-300 hover:text-highlight transition-colors duration-300"
         >
           Privacy Policy
         </a>
         <a
-          href="/terms"
           class="text-gray-300 hover:text-highlight transition-colors duration-300"
         >
           Terms of Service
