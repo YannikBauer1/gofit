@@ -1,5 +1,5 @@
 <template>
-  <div id="preise" class="maximum-width py-16 px-6">
+  <div id="preise" class="maximum-width py-16">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unsere Tarife</h2>
       <p class="text-gray-300 text-lg">Tarife pro Person und Monat</p>

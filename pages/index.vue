@@ -35,7 +35,9 @@
             Preise
           </a>
           <a
-            @click="scrollToSection('trainer')"
+            href="https://www.rehasportbadkissingen.de/"
+            target="_blank"
+            rel="noopener"
             class="hover:text-highlight cursor-pointer transition-colors duration-300"
           >
             Rehasport
@@ -140,7 +142,9 @@
     <div></div>
 
     <!-- Kurse Section -->
-    <div id="kurse"></div>
+    <div id="kurse">
+      <Courses />
+    </div>
 
     <!-- Preise Section -->
     <Price />
