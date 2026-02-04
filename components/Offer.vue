@@ -1,11 +1,11 @@
 <template>
-  <div id="angebot" class="maximum-width py-16 px-6">
+  <div id="angebot" class="maximum-width py-16">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unser Angebot</h2>
       <p class="text-gray-300 text-lg">Erlebe Training, Kurse und Wellness</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  mx-auto">
       <div
         v-for="(item, idx) in offerVideos"
         :key="idx"
@@ -49,8 +49,8 @@
 import { reactive } from "vue";
 
 const offerVideos = [
-  { src: "/training.mp4", title: "Training & Kurse" },
-  { src: "/rehasport.mp4", title: "Rehasport" },
+  { src: "/training.mp4", title: "Training" },
+  { src: "/rehasport.mp4", title: "Kurse & Rehasport" },
   { src: "/wellness.mp4", title: "Wellness" },
   { src: "/scaneca.mp4", title: "3D Scan" },
 ];

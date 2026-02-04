@@ -2,14 +2,14 @@
   <div id="courses" class="maximum-width py-16">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Kursplan</h2>
-      <p class="text-gray-300 text-lg">Gültig ab 13. Oktober 2025</p>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">Anmeldung für Rehasport oder Kurse mit Anmeldung kannst du in der App, telefonisch oder bei uns vor Ort machen.</p>
     </div>
 
     <!-- Desktop: timeline with consistent Y-axis, course cards in their time slot -->
     <div class="overflow-x-auto mb-12 hidden md:block">
-      <div class="bg-card my-rounded my-shadow overflow-hidden min-w-[800px]">
+      <div class="bg-card my-rounded my-shadow overflow-hidden min-w-[80px]">
         <div class="grid border-b border-background" style="grid-template-columns: 4rem 1fr 1fr 1fr 1fr 1fr 1fr;">
-          <div class="py-4 px-2 pl-3 text-highlight font-semibold text-sm">Uhr</div>
+          <div class="py-4 px-2 w-full text-center font-semibold text-sm">Uhr</div>
           <div
             v-for="day in weekdays"
             :key="day"
@@ -19,7 +19,7 @@
             {{ day }}
           </div>
         </div>
-        <div class="grid relative" style="grid-template-columns: 4rem 1fr 1fr 1fr 1fr 1fr 1fr; min-height: 32rem;">
+        <div class="grid relative" style="grid-template-columns: 4rem 1fr 1fr 1fr 1fr 1fr 1fr; min-height: 36rem;">
           <!-- Hour lines (between full hours), only across day columns -->
           <div class="absolute top-0 right-0 bottom-0 left-[4rem] pointer-events-none z-0">
             <div
@@ -30,11 +30,11 @@
             />
           </div>
           <!-- Y-axis: time labels (one per hour) -->
-          <div class="relative z-10" style="height: 32rem;">
+          <div class="relative z-10" style="height: 36rem;">
             <div
               v-for="t in timeLabels"
               :key="t.label"
-              class="absolute left-0 px-2 text-gray-500 pl-3 text-xs font-medium -translate-y-1/2"
+              class="absolute left-0 px-2 text-gray-500 w-full text-center text-xs font-medium -translate-y-1/2"
               :style="{ top: t.topPercent + '%' }"
             >
               {{ t.label }}
@@ -46,7 +46,7 @@
             :key="day"
             class="relative z-10 border-l border-background"
             :class="{ 'bg-highlight/5': isTodayColumn(day) }"
-            style="height: 32rem;"
+            style="height: 36rem;"
           >
             <!-- Inner wrapper so percentage positioning is relative to column height -->
             <div class="absolute inset-0">
@@ -54,13 +54,14 @@
                 v-for="(course, idx) in coursesWithPositionByDay[day]"
                 :key="'kurs-' + day + idx"
                 class="absolute left-1 right-1 rounded overflow-hidden flex flex-col justify-center px-1.5 py-0.5 pr-8 bg-background/90 border border-highlight/30 hover:border-highlight/60 transition-colors"
+                :class="{ 'border-l-2 border-l-highlight': needAnmeldung(course.name) }"
                 :style="{
                   top: course.topPercent + '%',
                   height: course.heightPercent + '%',
                 }"
               >
-                <span class="font-semibold text-white text-xs leading-none truncate" :title="course.name + ' – ' + course.time + ' Uhr'">{{ course.name }}</span>
-                <span class="absolute top-0.5 right-0.5 text-gray-400 text-[0.5rem] leading-none whitespace-nowrap">{{ course.time }}</span>
+                <span class="font-semibold text-white text-xs leading-none truncate" :title="course.name + ' – ' + course.time + ' Uhr' + (needAnmeldung(course.name) ? ' (Anmeldung erforderlich)' : '')">{{ course.name }}</span>
+                <span class="absolute top-0.5 right-0.5 text-gray-400 text-[0.6rem] leading-none whitespace-nowrap">{{ course.time }}</span>
               </div>
               <div
                 v-for="(slot, idx) in rehasportWithPositionByDay[day]"
@@ -72,7 +73,7 @@
                 }"
               >
                 <span class="font-semibold text-cyan-100 text-xs leading-none truncate" :title="'Rehasport – ' + slot.time + ' Uhr'">Rehasport</span>
-                <span class="absolute top-0.5 right-0.5 text-cyan-300/80 text-[0.5rem] leading-none whitespace-nowrap">{{ slot.time }}</span>
+                <span class="absolute top-0.5 right-0.5 text-cyan-300/80 text-[0.6rem] leading-none whitespace-nowrap">{{ slot.time }}</span>
               </div>
             </div>
           </div>
@@ -102,9 +103,10 @@
             v-for="course in getCoursesForDay(day)"
             :key="'kurs-' + course.time + course.name"
             class="flex justify-between items-center text-gray-300 text-sm py-2 border-b border-background/50 last:border-0 gap-2"
+            :class="{ 'pl-2 border-l-2 border-l-highlight -ml-px': needAnmeldung(course.name) }"
           >
             <span class="text-gray-400 whitespace-nowrap">{{ course.time }} Uhr</span>
-            <span class="font-medium text-white text-right">{{ course.name }}</span>
+            <span class="font-medium text-white text-right" :title="needAnmeldung(course.name) ? 'Anmeldung erforderlich' : undefined">{{ course.name }}</span>
           </li>
           <li
             v-for="slot in getRehasportForDay(day)"
@@ -123,6 +125,7 @@
         </ul>
       </div>
     </div>
+    <p class="text-center text-gray-500 text-sm mt-4">Kurse mit grünem Rand = Anmeldung erforderlich (Jumping, Indoor Cycling, Boxing, Suspension Training)</p>
   </div>
 </template>
 
@@ -184,7 +187,7 @@ const coursesByDay = {
     { time: "09:35 - 10:20", name: "Aroha®" },
     { time: "10:25 - 11:10", name: "Pilates" },
     { time: "11:15 - 12:15", name: "Indoor Cycling" },
-    { time: "17:10 - 17:55", name: "Suspension Training" },
+    { time: "17:10 - 17:55", name: "Suspension" },
     { time: "18:00 - 19:10", name: "Weight Pump" },
     { time: "19:15 - 20:00", name: "Pilates" },
     { time: "20:10 - 21:10", name: "Indoor Cycling" },
@@ -269,5 +272,10 @@ function getRehasportForDay(day) {
 function isTodayColumn(day) {
   const today = new Date().toLocaleDateString("de-DE", { weekday: "long" });
   return day === today;
+}
+
+function needAnmeldung(courseName) {
+  const n = (courseName || "").toLowerCase();
+  return /jumping|cycling|boxing|suspension/.test(n);
 }
 </script>

@@ -152,48 +152,27 @@
     <!-- Hours Section -->
     <Hours />
 
-    <!-- Trainer Section -->
-    <Trainer />
+    <!-- Trainer Section 
+    <Trainer />-->
 
     <!-- Advanced Features Section -->
     <div class="max-w-7xl mx-auto"></div>
 
-    <!-- Contact Section -->
-    <div id="contact" class="max-w-4xl mx-auto text-center pb-16"></div>
+    <!-- Contact: Map + Address -->
+    <ContactMap />
   </div>
 
   <!-- Footer -->
-  <footer class="bg-card text-white py-6 px-6">
-    <div
-      class="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center"
-    >
-      <!-- Copyright -->
-      <div class="text-gray-300 text-sm mb-6 md:mb-0">
-        © 2026 GoFit. All rights reserved.
-      </div>
-
-      <!-- Footer Links -->
-      <div class="flex flex-wrap gap-4 md:gap-6 text-sm">
-        <a
-          class="text-gray-300 hover:text-highlight transition-colors duration-300"
-        >
-          Contact
-        </a>
-        <a
-          class="text-gray-300 hover:text-highlight transition-colors duration-300"
-        >
-          Credits
-        </a>
-        <a
-          class="text-gray-300 hover:text-highlight transition-colors duration-300"
-        >
-          Privacy Policy
-        </a>
-        <a
-          class="text-gray-300 hover:text-highlight transition-colors duration-300"
-        >
-          Terms of Service
-        </a>
+  <footer class="bg-card text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+        <div class="text-gray-300 text-sm mb-6 md:mb-0">
+          © 2026 GoFit. All rights reserved.
+        </div>
+        <div class="flex flex-wrap gap-4 md:gap-6 text-sm">
+          <a href="#" class="text-gray-300 hover:text-highlight transition-colors duration-300">Impressum</a>
+          <a href="#" class="text-gray-300 hover:text-highlight transition-colors duration-300">Datenschutz</a>
+        </div>
       </div>
     </div>
   </footer>
