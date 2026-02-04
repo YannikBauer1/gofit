@@ -138,8 +138,8 @@
       ></div>
     </div>
 
-    <!-- Statistics Section -->
-    <div></div>
+    <!-- Unser Angebot (videos) -->
+    <Offer />
 
     <!-- Kurse Section -->
     <div id="kurse">

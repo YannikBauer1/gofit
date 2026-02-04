@@ -14,6 +14,7 @@ type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}
 interface _GlobalComponents {
       'Courses': typeof import("../components/Courses.vue")['default']
     'Hours': typeof import("../components/Hours.vue")['default']
+    'Offer': typeof import("../components/Offer.vue")['default']
     'Price': typeof import("../components/Price.vue")['default']
     'Trainer': typeof import("../components/Trainer.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
@@ -95,6 +96,7 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyCourses': LazyComponent<typeof import("../components/Courses.vue")['default']>
     'LazyHours': LazyComponent<typeof import("../components/Hours.vue")['default']>
+    'LazyOffer': LazyComponent<typeof import("../components/Offer.vue")['default']>
     'LazyPrice': LazyComponent<typeof import("../components/Price.vue")['default']>
     'LazyTrainer': LazyComponent<typeof import("../components/Trainer.vue")['default']>
     'LazyUAccordion': LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
@@ -182,6 +184,7 @@ declare module 'vue' {
 
 export const Courses: typeof import("../components/Courses.vue")['default']
 export const Hours: typeof import("../components/Hours.vue")['default']
+export const Offer: typeof import("../components/Offer.vue")['default']
 export const Price: typeof import("../components/Price.vue")['default']
 export const Trainer: typeof import("../components/Trainer.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
@@ -263,6 +266,7 @@ export const USlideovers: typeof import("../node_modules/nuxt/dist/app/component
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyCourses: LazyComponent<typeof import("../components/Courses.vue")['default']>
 export const LazyHours: LazyComponent<typeof import("../components/Hours.vue")['default']>
+export const LazyOffer: LazyComponent<typeof import("../components/Offer.vue")['default']>
 export const LazyPrice: LazyComponent<typeof import("../components/Price.vue")['default']>
 export const LazyTrainer: LazyComponent<typeof import("../components/Trainer.vue")['default']>
 export const LazyUAccordion: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
