@@ -25,11 +25,11 @@
           97688 Bad Kissingen
         </p>
         <p class="text-gray-300 flex items-center gap-2">
-          <div class="text-gray-400 w-12">Phone:</div>
+          <span class="text-gray-400 w-12">Phone:</span>
           <a href="tel:+4997161011" class="text-highlight hover:underline">0971 61011</a>
         </p>
         <p class="text-gray-300 flex items-center gap-2">
-          <div class="text-gray-400 w-12">Email:</div>
+          <span class="text-gray-400 w-12">Email:</span>
           <a href="mailto:gofitbk@gmail.com" class="text-highlight hover:underline">gofitbk@gmail.com</a>
         </p>
         </div>

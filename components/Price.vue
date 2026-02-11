@@ -56,7 +56,7 @@
       </div>
 
       <div class="text-center">
-        <p class="text-highlight font-semibold">
+        <p class="text-gray-500 text-sm">
           Start-up-Paket: einmalig 79,00 €
         </p>
       </div>

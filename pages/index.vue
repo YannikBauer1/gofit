@@ -53,6 +53,7 @@
         <div class="w-60 flex justify-end">
           <button
             class="bg-highlight text-background px-4 py-2 rounded-md font-medium"
+            @click="showProbetrainingPopup = true"
           >
             PROBETRAINING BUCHEN
           </button>
@@ -115,6 +116,12 @@
           >
             Kontakt
           </a>
+          <button
+            @click="showProbetrainingPopup = true; mobileMenuOpen = false"
+            class="text-left text-gray-700 hover:text-highlight cursor-pointer transition-colors duration-300 font-medium"
+          >
+            Probetraining buchen
+          </button>
         </div>
       </div>
     </div>
@@ -152,8 +159,8 @@
     <!-- Hours Section -->
     <Hours />
 
-    <!-- Trainer Section 
-    <Trainer />-->
+    <!-- Trainer Section -->
+    <Trainer />
 
     <!-- Advanced Features Section -->
     <div class="max-w-7xl mx-auto"></div>
@@ -161,6 +168,9 @@
     <!-- Contact: Map + Address -->
     <ContactMap />
   </div>
+
+  <!-- Probetraining popup (opened via header button) -->
+  <ProbetrainingWidget v-model:open="showProbetrainingPopup" />
 
   <!-- Footer -->
   <footer class="bg-card text-white py-12 px-6">
@@ -196,6 +206,7 @@ useHead({
 const scrolled = ref(false);
 const mobileMenuOpen = ref(false);
 const header = ref(null);
+const showProbetrainingPopup = ref(false);
 
 // Scroll handler
 const handleScroll = () => {

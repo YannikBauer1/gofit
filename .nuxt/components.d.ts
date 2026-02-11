@@ -17,6 +17,7 @@ interface _GlobalComponents {
     'Hours': typeof import("../components/Hours.vue")['default']
     'Offer': typeof import("../components/Offer.vue")['default']
     'Price': typeof import("../components/Price.vue")['default']
+    'ProbetrainingWidget': typeof import("../components/ProbetrainingWidget.vue")['default']
     'Trainer': typeof import("../components/Trainer.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'UAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
@@ -100,6 +101,7 @@ interface _GlobalComponents {
     'LazyHours': LazyComponent<typeof import("../components/Hours.vue")['default']>
     'LazyOffer': LazyComponent<typeof import("../components/Offer.vue")['default']>
     'LazyPrice': LazyComponent<typeof import("../components/Price.vue")['default']>
+    'LazyProbetrainingWidget': LazyComponent<typeof import("../components/ProbetrainingWidget.vue")['default']>
     'LazyTrainer': LazyComponent<typeof import("../components/Trainer.vue")['default']>
     'LazyUAccordion': LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
     'LazyUAlert': LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>
@@ -189,6 +191,7 @@ export const Courses: typeof import("../components/Courses.vue")['default']
 export const Hours: typeof import("../components/Hours.vue")['default']
 export const Offer: typeof import("../components/Offer.vue")['default']
 export const Price: typeof import("../components/Price.vue")['default']
+export const ProbetrainingWidget: typeof import("../components/ProbetrainingWidget.vue")['default']
 export const Trainer: typeof import("../components/Trainer.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const UAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
@@ -272,6 +275,7 @@ export const LazyCourses: LazyComponent<typeof import("../components/Courses.vue
 export const LazyHours: LazyComponent<typeof import("../components/Hours.vue")['default']>
 export const LazyOffer: LazyComponent<typeof import("../components/Offer.vue")['default']>
 export const LazyPrice: LazyComponent<typeof import("../components/Price.vue")['default']>
+export const LazyProbetrainingWidget: LazyComponent<typeof import("../components/ProbetrainingWidget.vue")['default']>
 export const LazyTrainer: LazyComponent<typeof import("../components/Trainer.vue")['default']>
 export const LazyUAccordion: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']>
 export const LazyUAlert: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']>

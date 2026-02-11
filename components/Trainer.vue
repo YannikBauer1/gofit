@@ -1,7 +1,7 @@
 <template>
   <div id="trainer" class="maximum-width py-16">
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unsere Trainer</h2>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Unser Team</h2>
       <p class="text-gray-300 text-lg">Erfahrene Profis, die dich auf deinem Fitness-Weg begleiten</p>
     </div>
     
@@ -37,31 +37,25 @@
           <div
             v-for="(trainer, index) in duplicatedTrainers"
             :key="`${trainer.name}-${index}`"
-            class="flex-shrink-0"
+            class="flex-shrink-0 group"
             :style="{ width: `${cardWidth}px`, marginRight: `${gap}px` }"
           >
-            <div class="bg-card p-6 my-rounded my-shadow overflow-hidden transition-shadow duration-300 h-full">
-              <div class="h-48 overflow-hidden flex justify-center">
+            <div class="relative bg-card my-rounded my-shadow overflow-hidden h-full flex flex-col p-3 transition-colors duration-200 group-hover:bg-gray-800">
+              <!-- Image area: same bg as card so no two-tone (page bg showing through) -->
+              <div class="aspect-[3/4] overflow-hidden flex justify-center rounded-lg bg-card transition-colors duration-200 group-hover:bg-gray-800">
                 <img
                   src="/trainer/yannik.png"
                   :alt="trainer.name"
-                  class="h-[120%] w-auto max-w-sm object-cover object-top"
+                  class="h-full w-auto max-w-full object-cover object-top"
                 />
               </div>
-              <div>
-                <h3 class="text-2xl font-bold text-white mb-2 mt-2">{{ trainer.name }}</h3>
-                <p :class="trainer.colorClass" class="font-semibold mb-3">{{ trainer.specialization }}</p>
-                <p class="text-gray-300 text-sm mb-4">{{ trainer.description }}</p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    v-for="tag in trainer.tags"
-                    :key="tag"
-                    :class="trainer.tagColorClass"
-                    class="px-3 py-1 rounded-full text-xs"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
+              <!-- Overlay over entire card (including padding) -->
+              <div
+                class="absolute inset-0 z-10 rounded-2xl bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4 text-left pointer-events-none"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">{{ trainer.name }}</h3>
+                <p :class="trainer.colorClass" class="font-semibold text-sm mb-2">{{ trainer.specialization }}</p>
+                <p class="text-gray-300 text-sm leading-snug">{{ trainer.description }}</p>
               </div>
             </div>
           </div>
@@ -78,7 +72,7 @@ const trainers = [
   {
     name: "Max Müller",
     specialization: "Personal Trainer & Krafttraining",
-    description: "10+ Jahre Erfahrung in Personal Training und Bodybuilding. Spezialisiert auf Kraft- und Muskelaufbau.",
+    description: "10+ Jahre Erfahrung. Fokus Kraft & Muskelaufbau.",
     tags: ["Krafttraining", "Bodybuilding"],
     colorClass: "text-blue-400",
     tagColorClass: "bg-blue-500/20 text-blue-300",
@@ -86,7 +80,7 @@ const trainers = [
   {
     name: "Sarah Schmidt",
     specialization: "Yoga & Rehasport",
-    description: "Zertifizierte Yoga- und Rehasport-Trainerin mit Fokus auf Rehabilitation und Entspannung.",
+    description: "Zertifiziert Yoga & Rehasport. Reha & Entspannung.",
     tags: ["Yoga", "Rehasport"],
     colorClass: "text-green-400",
     tagColorClass: "bg-green-500/20 text-green-300",
@@ -94,7 +88,7 @@ const trainers = [
   {
     name: "Tom Weber",
     specialization: "Ausdauer & Functional Training",
-    description: "Experte für Cardio-Training, Functional Fitness und Marathon-Vorbereitung.",
+    description: "Cardio, Functional Fitness, Marathon.",
     tags: ["Cardio", "Functional"],
     colorClass: "text-orange-400",
     tagColorClass: "bg-orange-500/20 text-orange-300",
@@ -102,7 +96,7 @@ const trainers = [
   {
     name: "Lisa Fischer",
     specialization: "Dance Fitness & Zumba",
-    description: "Energische Dance-Fitness-Trainerin, die jede Stunde zu einem Party-Erlebnis macht.",
+    description: "Dance-Fitness – jede Stunde ein Erlebnis.",
     tags: ["Dance", "Zumba"],
     colorClass: "text-pink-400",
     tagColorClass: "bg-pink-500/20 text-pink-300",
@@ -110,7 +104,7 @@ const trainers = [
   {
     name: "Andreas Klein",
     specialization: "CrossFit & Functional Training",
-    description: "CrossFit Level 2 Trainer mit Fokus auf funktionelle Bewegungen und Intensität.",
+    description: "CrossFit Level 2. Funktionell & intensiv.",
     tags: ["CrossFit", "HIIT"],
     colorClass: "text-cyan-400",
     tagColorClass: "bg-cyan-500/20 text-cyan-300",
@@ -118,7 +112,7 @@ const trainers = [
   {
     name: "Anna Becker",
     specialization: "Boxing & Kickboxing",
-    description: "Professionelle Kampfsport-Trainerin für Boxen und Kickboxen. Ideal für Kraft und Koordination.",
+    description: "Boxen & Kickboxen. Kraft & Koordination.",
     tags: ["Boxing", "Kickboxing"],
     colorClass: "text-yellow-400",
     tagColorClass: "bg-yellow-500/20 text-yellow-300",
@@ -194,6 +188,8 @@ const scrollRight = () => {
   }
 };
 
+const maxCardWidth = 200; // Keep trainer images smaller
+
 // Calculate card width based on container
 const calculateCardWidth = () => {
   if (carouselContainer.value && carouselContainer.value.parentElement) {
@@ -201,7 +197,7 @@ const calculateCardWidth = () => {
     const containerWidth = container.offsetWidth - 96; // Subtract padding (48px * 2)
     // Use more precise calculation without flooring to avoid accumulation errors
     const calculatedWidth = (containerWidth - (gap * (visibleCards.value - 1))) / visibleCards.value;
-    cardWidth.value = Math.round(calculatedWidth * 100) / 100; // Round to 2 decimal places for precision
+    cardWidth.value = Math.min(maxCardWidth, Math.round(calculatedWidth * 100) / 100);
   }
 };
 

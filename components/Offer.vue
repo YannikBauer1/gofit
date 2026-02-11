@@ -5,7 +5,9 @@
       <p class="text-gray-300 text-lg">Erlebe Training, Kurse und Wellness</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  mx-auto">
+    <ProbetrainingWidget />
+
+    <div class="flex flex-wrap justify-between gap-6">
       <div
         v-for="(item, idx) in offerVideos"
         :key="idx"

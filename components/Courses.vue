@@ -9,7 +9,7 @@
     <div class="overflow-x-auto mb-12 hidden md:block">
       <div class="bg-card my-rounded my-shadow overflow-hidden min-w-[80px]">
         <div class="grid border-b border-background" style="grid-template-columns: 4rem 1fr 1fr 1fr 1fr 1fr 1fr;">
-          <div class="py-4 px-2 w-full text-center font-semibold text-sm">Uhr</div>
+          <div class="py-4 px-2 w-full text-center font-semibold text-sm text-white">Uhr</div>
           <div
             v-for="day in weekdays"
             :key="day"
