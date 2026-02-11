@@ -40,11 +40,11 @@
             class="flex-shrink-0 group"
             :style="{ width: `${cardWidth}px`, marginRight: `${gap}px` }"
           >
-            <div class="relative bg-card my-rounded my-shadow overflow-hidden h-full flex flex-col p-3 transition-colors duration-200 group-hover:bg-gray-800">
+            <div class="relative bg-card my-rounded my-shadow overflow-hidden h-full flex flex-col p-2 transition-colors duration-200 group-hover:bg-gray-800">
               <!-- Image area: same bg as card so no two-tone (page bg showing through) -->
-              <div class="aspect-[3/4] overflow-hidden flex justify-center rounded-lg bg-card transition-colors duration-200 group-hover:bg-gray-800">
+              <div class="aspect-[3/4] overflow-hidden flex justify-center my-rounded bg-card transition-colors duration-200 group-hover:bg-gray-800">
                 <img
-                  src="/trainer/yannik.png"
+                  :src="trainer.image"
                   :alt="trainer.name"
                   class="h-full w-auto max-w-full object-cover object-top"
                 />
@@ -71,6 +71,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 const trainers = [
   {
     name: "Max Müller",
+    image: "/trainer/yannik.jpg",
     specialization: "Personal Trainer & Krafttraining",
     description: "10+ Jahre Erfahrung. Fokus Kraft & Muskelaufbau.",
     tags: ["Krafttraining", "Bodybuilding"],
@@ -79,6 +80,7 @@ const trainers = [
   },
   {
     name: "Sarah Schmidt",
+    image: "/trainer/rigo.jpg",
     specialization: "Yoga & Rehasport",
     description: "Zertifiziert Yoga & Rehasport. Reha & Entspannung.",
     tags: ["Yoga", "Rehasport"],
@@ -87,6 +89,7 @@ const trainers = [
   },
   {
     name: "Tom Weber",
+    image: "/trainer/yannik.jpg",
     specialization: "Ausdauer & Functional Training",
     description: "Cardio, Functional Fitness, Marathon.",
     tags: ["Cardio", "Functional"],
@@ -95,6 +98,7 @@ const trainers = [
   },
   {
     name: "Lisa Fischer",
+    image: "/trainer/rigo.jpg",
     specialization: "Dance Fitness & Zumba",
     description: "Dance-Fitness – jede Stunde ein Erlebnis.",
     tags: ["Dance", "Zumba"],
@@ -103,6 +107,7 @@ const trainers = [
   },
   {
     name: "Andreas Klein",
+    image: "/trainer/yannik.jpg",
     specialization: "CrossFit & Functional Training",
     description: "CrossFit Level 2. Funktionell & intensiv.",
     tags: ["CrossFit", "HIIT"],
@@ -111,6 +116,7 @@ const trainers = [
   },
   {
     name: "Anna Becker",
+    image: "/trainer/rigo.jpg",
     specialization: "Boxing & Kickboxing",
     description: "Boxen & Kickboxen. Kraft & Koordination.",
     tags: ["Boxing", "Kickboxing"],
