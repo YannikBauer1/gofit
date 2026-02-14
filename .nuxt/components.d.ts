@@ -12,7 +12,9 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'ContactMap': typeof import("../components/ContactMap.vue")['default']
+      'AppFooter': typeof import("../components/AppFooter.vue")['default']
+    'AppHeader': typeof import("../components/AppHeader.vue")['default']
+    'ContactMap': typeof import("../components/ContactMap.vue")['default']
     'Courses': typeof import("../components/Courses.vue")['default']
     'Hours': typeof import("../components/Hours.vue")['default']
     'Offer': typeof import("../components/Offer.vue")['default']
@@ -96,7 +98,9 @@ interface _GlobalComponents {
     'UModals': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyContactMap': LazyComponent<typeof import("../components/ContactMap.vue")['default']>
+      'LazyAppFooter': LazyComponent<typeof import("../components/AppFooter.vue")['default']>
+    'LazyAppHeader': LazyComponent<typeof import("../components/AppHeader.vue")['default']>
+    'LazyContactMap': LazyComponent<typeof import("../components/ContactMap.vue")['default']>
     'LazyCourses': LazyComponent<typeof import("../components/Courses.vue")['default']>
     'LazyHours': LazyComponent<typeof import("../components/Hours.vue")['default']>
     'LazyOffer': LazyComponent<typeof import("../components/Offer.vue")['default']>
@@ -186,6 +190,8 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const AppFooter: typeof import("../components/AppFooter.vue")['default']
+export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const ContactMap: typeof import("../components/ContactMap.vue")['default']
 export const Courses: typeof import("../components/Courses.vue")['default']
 export const Hours: typeof import("../components/Hours.vue")['default']
@@ -270,6 +276,8 @@ export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components
 export const UModals: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
+export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyContactMap: LazyComponent<typeof import("../components/ContactMap.vue")['default']>
 export const LazyCourses: LazyComponent<typeof import("../components/Courses.vue")['default']>
 export const LazyHours: LazyComponent<typeof import("../components/Hours.vue")['default']>

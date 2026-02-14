@@ -172,20 +172,7 @@
   <!-- Probetraining popup (opened via header button) -->
   <ProbetrainingWidget v-model:open="showProbetrainingPopup" />
 
-  <!-- Footer -->
-  <footer class="bg-card text-white py-12 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-        <div class="text-gray-300 text-sm mb-6 md:mb-0">
-          © 2026 GoFit. All rights reserved.
-        </div>
-        <div class="flex flex-wrap gap-4 md:gap-6 text-sm">
-          <a href="#" class="text-gray-300 hover:text-highlight transition-colors duration-300">Impressum</a>
-          <a href="#" class="text-gray-300 hover:text-highlight transition-colors duration-300">Datenschutz</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <AppFooter />
 </template>
 
 <script setup>
